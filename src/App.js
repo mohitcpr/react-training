@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useRef, useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import Ratnesh from "./components/Ratnesh";
+// 1. mounting
+// 2. updating
+// 3. unmounting
+// useEffect hooks
 
 function App() {
+  let fname = "Pranjal";
+  let lname = "Singh";
+  const [email, setEmail] = useState("");
+  const [count, setCount] = useState(0);
+  const nameRef = useRef(null);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Ratnesh
+        type="email"
+        ph="Enter Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <Ratnesh type="number" ph="Enter Phone" />
+      <Ratnesh type="password" ph="Enter Password" />
+      <div>{email}</div>
     </div>
   );
 }
